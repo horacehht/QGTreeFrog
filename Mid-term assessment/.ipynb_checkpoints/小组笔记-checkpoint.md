@@ -118,31 +118,3 @@ missing.plot.bar()
 分成1w4的数据，内存也维持在92-96的高位，看来数据确实是比较多
 
 ![](https://horacehhtbucket.oss-cn-guangzhou.aliyuncs.com/img/image-20210413010226950.png)
-
-#### bug3:
-
-![image-20210413080931982](https://horacehhtbucket.oss-cn-guangzhou.aliyuncs.com/img/image-20210413080931982.png)
-
-上[stackoverflow]()上查到原因，numpy的一些函数以浮点型的数据进行计算
-
-
-
-data.loc[data['test_type'] == 'offline', 'test_type'] = 0 # 令test_type等于offline那行的test_type值为0
-data.loc[data['test_type'] == 'online', 'test_type'] = 1 # 另test_type等于online那行的test_type值为1，下同理
-
-data.loc[data['gender'] == 'M', 'gender'] = 0
-data.loc[data['gender'] == 'F', 'gender'] = 1
-
-data.loc[data['education'] == 'No Qualification', 'education'] = 0
-data.loc[data['education'] == 'High School Diploma', 'education'] = 1
-data.loc[data['education'] == 'Matriculation', 'education'] = 2
-data.loc[data['education'] == 'Bachelors', 'education'] = 3
-data.loc[data['education'] == 'Masters', 'education'] = 4
-
-data.loc[data['difficulty_level'] == 'easy', 'difficulty_level'] = 0
-data.loc[data['difficulty_level'] == 'intermediate', 'difficulty_level'] = 1
-data.loc[data['difficulty_level'] == 'hard', 'difficulty_level'] = 2
-data.loc[data['difficulty_level'] == 'vary hard', 'difficulty_level'] = 3
-
-data.loc[data['is_handicapped'] == 'Y', 'is_handicapped'] = 1
-data.loc[data['is_handicapped'] == 'N', 'is_handicapped'] = 0
